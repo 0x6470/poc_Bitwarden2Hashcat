@@ -17,7 +17,7 @@ def crack(email, keyHash, iterations, wordlist):
 
 
 def getData():
-    with open("data.json") as f:  # some unnecessary entries were removed from Windows 10 App, found in %userprofile%\AppData\Local\Packages\8bitSolutionsLLC.bitwardendesktop_h4e712dmw3xyy\LocalCache\Roaming\Bitwarden
+    with open("data.json") as f:  # some unnecessary entries were removed, retrieved from Windows 10 App, found in %userprofile%\AppData\Local\Packages\8bitSolutionsLLC.bitwardendesktop_h4e712dmw3xyy\LocalCache\Roaming\Bitwarden
         data = json.load(f)
     email = data["userEmail"]  # 10minutemail.com
     keyHash = data["keyHash"]
