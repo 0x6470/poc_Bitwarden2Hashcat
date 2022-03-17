@@ -9,7 +9,7 @@ def crack(email, keyHash, iterations, wordlist):
     for passphrase in wordlist:
         passphrase = passphrase.encode()
         pepper = hashlib.pbkdf2_hmac("sha256", passphrase, email, iterations, None)
-        possibleKeyHash = hashlib.pbkdf2_hmac("sha256", pepper, passphrase, 1, None)  # change from 1 to 2 for the new version
+        possibleKeyHash = hashlib.pbkdf2_hmac("sha256", pepper, passphrase, 2, None)  # version 2, https://github.com/hashcat/hashcat/pull/3202
         possibleKeyHash = base64.b64encode(possibleKeyHash).decode()  # base64 encode possibleKeyHash and make it a regular string
 
         if possibleKeyHash == keyHash:
